@@ -6,36 +6,25 @@ class SearchContainer extends React.Component {
     super(props);
 
     this.state = {
-      value: "",
       articles: []
     };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.performSearch = this.performSearch.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
+  performSearch(event) {
     fetch(
-      `http://content.guardianapis.com/search?q=${
-        event.target.value
-      }&api-key=3e6177a5-bcb1-493d-ad07-20c4fab62575`
+      `http://content.guardianapis.com/search?q=${event}&api-key=3e6177a5-bcb1-493d-ad07-20c4fab62575`
     )
       .then(response => response.json())
       .then(data => this.setState({ articles: data.response.results }));
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-  }
-
   render() {
     return (
       <Search
-        value={this.state.value}
+        performSearch={this.performSearch}
         articles={this.state.articles}
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
       />
     );
   }
