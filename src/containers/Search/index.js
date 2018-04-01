@@ -1,7 +1,7 @@
 import React from "react";
-import SearchResults from "./SearchResults";
+import Search from "../../components/Search";
 
-export class Search extends React.Component {
+class SearchContainer extends React.Component {
   constructor(props) {
     super(props);
 
@@ -31,19 +31,14 @@ export class Search extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>The Guardian Search App</h1>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            value={this.state.value}
-            onChange={this.handleChange}
-          />
-        </form>
-        <div>
-          <SearchResults articles={this.state.articles} />
-        </div>
-      </div>
+      <Search
+        value={this.state.value}
+        articles={this.state.articles}
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+      />
     );
   }
 }
+
+export default SearchContainer;
