@@ -1,4 +1,5 @@
 import React from "react";
+import SearchResults from "./SearchResults";
 
 export class Search extends React.Component {
   constructor(props) {
@@ -40,17 +41,7 @@ export class Search extends React.Component {
           />
         </form>
         <div>
-          <ul>
-            {this.state.articles.map((article, index) => {
-              return (
-                <li key={index}>
-                  <a href={article.webUrl} target="_blank">
-                    {article.webTitle}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
+          <SearchResults articles={this.state.articles} />
         </div>
       </div>
     );
