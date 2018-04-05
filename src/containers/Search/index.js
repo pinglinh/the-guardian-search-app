@@ -1,5 +1,6 @@
 import React from "react";
 import Search from "../../components/Search";
+import { API_KEY } from "../../../config";
 
 class SearchContainer extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class SearchContainer extends React.Component {
 
   performSearch(event) {
     fetch(
-      `http://content.guardianapis.com/search?q=${event}&api-key=3e6177a5-bcb1-493d-ad07-20c4fab62575`
+      `http://content.guardianapis.com/search?q=${event}&api-key=${API_KEY}`
     )
       .then(response => response.json())
       .then(data => this.setState({ articles: data.response.results }));
