@@ -1,5 +1,5 @@
 import React from "react";
-import Enzyme, { shallow } from "enzyme";
+import Enzyme, { shallow, mount } from "enzyme";
 import Search from "./";
 import Adapter from "enzyme-adapter-react-16";
 
@@ -27,5 +27,15 @@ describe("Search component", () => {
       }
     });
     expect(prevented).toBe(true);
+  });
+
+  test("renders search results when the articles change", () => {
+    const wrapper = mount(<Search articles={[]} />);
+
+    wrapper.setProps({
+      articles: [{ webUrl: "http://google.com", webTitle: "Google Search" }]
+    });
+
+    expect(wrapper.find("a").prop("href")).toEqual("http://google.com");
   });
 });
