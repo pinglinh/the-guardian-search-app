@@ -3,26 +3,19 @@ import SearchResults from "../SearchResults";
 import PropTypes from "prop-types";
 
 class Search extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    value: ""
+  };
 
-    this.state = {
-      value: ""
-    };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
+  handleChange = event => {
     let value = event.target.value;
     this.setState({ value });
     this.props.performSearch(value);
-  }
+  };
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
-  }
+  };
 
   render() {
     return (
