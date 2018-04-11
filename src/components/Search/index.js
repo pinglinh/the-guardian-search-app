@@ -1,5 +1,6 @@
 import React from "react";
 import SearchResults from "../SearchResults";
+import PropTypes from "prop-types";
 
 class Search extends React.Component {
   constructor(props) {
@@ -41,5 +42,10 @@ class Search extends React.Component {
     );
   }
 }
+
+Search.propTypes = {
+  performSearch: PropTypes.func,
+  articles: PropTypes.array
+};
 
 export default Search;
