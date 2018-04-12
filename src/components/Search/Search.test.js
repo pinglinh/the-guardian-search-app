@@ -12,11 +12,21 @@ describe("Search component", () => {
     expect(wrapper.exists()).toBe(true);
   });
 
-  // test("user text is echoed", () => {
-  //   const wrapper = shallow(<Search />);
-  //
-  //   wrapper.find("input").simulate("keyDown");
-  // });
+  test("user text is echoed", () => {
+    const wrapper = shallow(
+      <Search
+        performSearch={() => {
+          "hello";
+        }}
+      />
+    );
+
+    wrapper.find("input").simulate("change", {
+      target: { value: "hello" }
+    });
+
+    expect(wrapper.find("input").props().value).toEqual("hello");
+  });
 
   test("when the form is submitted the event is cancelled", () => {
     const wrapper = shallow(<Search />);
