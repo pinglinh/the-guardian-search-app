@@ -8,6 +8,7 @@
     "build": "webpack --mode production",
     "test": "jest --verbose",
     "test:watch": "jest --watchAll --verbose",
+    "test:coverage": "jest --verbose --coverage",
     "eslint": "eslint src/"
   },
   "keywords": [],
