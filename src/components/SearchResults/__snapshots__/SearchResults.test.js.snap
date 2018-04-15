@@ -135,9 +135,7 @@ exports[`SearchResults component returns the default empty array when there is n
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <SearchResults
-    articles={Array []}
-  />,
+  Symbol(enzyme.__unrendered__): <SearchResults />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
