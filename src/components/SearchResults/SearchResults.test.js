@@ -12,9 +12,17 @@ const mockArticles = [
   }
 ];
 
+const mockEmptyArticles = [];
+
 describe("SearchResults component", () => {
   test("renders", () => {
     const wrapper = shallow(<SearchResults articles={mockArticles} />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  test("returns the default empty array when there is no data to map through or what would happen when I render the component with no data", () => {
+    const wrapper = shallow(<SearchResults articles={mockEmptyArticles} />);
 
     expect(wrapper).toMatchSnapshot();
   });

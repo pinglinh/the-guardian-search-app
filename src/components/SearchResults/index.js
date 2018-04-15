@@ -1,16 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const SearchResults = props => (
+const SearchResults = ({ articles = [] }) => (
   <ul>
-    {props.articles &&
-      props.articles.map((article, index) => (
-        <li key={index}>
-          <a href={article.webUrl} target="_blank">
-            {article.webTitle}
-          </a>
-        </li>
-      ))}
+    {articles.map(({ webUrl, webTitle }) => (
+      <li key={webUrl}>
+        <a href={webUrl} target="_blank">
+          {webTitle}
+        </a>
+      </li>
+    ))}
   </ul>
 );
 
