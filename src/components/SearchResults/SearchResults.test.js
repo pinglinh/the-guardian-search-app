@@ -24,4 +24,16 @@ describe("SearchResults component", () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  test("doesn't break without articles", () => {
+    const wrapper = shallow(<SearchResults />);
+
+    expect(wrapper.find("li")).toHaveLength(0);
+  });
+
+  test("doesn't break with an empty array", () => {
+    const wrapper = shallow(<SearchResults articles={[]} />);
+
+    expect(wrapper.find("li")).toHaveLength(0);
+  });
 });
