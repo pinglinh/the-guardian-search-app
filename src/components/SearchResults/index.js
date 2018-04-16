@@ -5,7 +5,7 @@ const SearchResults = ({ articles = [] }) => (
   <ul>
     {articles.map(({ webUrl, webTitle }) => (
       <li key={webUrl}>
-        <a href={webUrl} target="_blank">
+        <a href={webUrl} target="_blank" rel="noopener noreferrer">
           {webTitle}
         </a>
       </li>
