@@ -2,17 +2,25 @@ import React from "react";
 import Search from "../../components/Search";
 import { API_KEY } from "../../../config";
 
+import fetchArticles from "../../api";
+
 class SearchContainer extends React.Component {
   state = {
     articles: []
   };
 
+  // performSearch = event => {
+  //   fetch(
+  //     `http://content.guardianapis.com/search?q=${event}&api-key=${API_KEY}`
+  //   )
+  //     .then(response => response.json())
+  //     .then(data => this.setState({ articles: data.response.results }));
+  // };
+
   performSearch = event => {
-    fetch(
-      `http://content.guardianapis.com/search?q=${event}&api-key=${API_KEY}`
-    )
-      .then(response => response.json())
-      .then(data => this.setState({ articles: data.response.results }));
+    return fetchArticles(event).then(data =>
+      this.setState({ articles: data.response.results })
+    );
   };
 
   render() {
