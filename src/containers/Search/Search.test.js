@@ -1,32 +1,25 @@
 import React from "react";
 import Enzyme, { shallow, mount } from "enzyme";
-import Search from "./";
 import Adapter from "enzyme-adapter-react-16";
 
-import { loadFromServer } from "./";
-import fetch from "jest-fetch-mock";
+import SearchContainer from "./";
 
 Enzyme.configure({ adapter: new Adapter() });
 
+jest.mock("../../api/");
+
 describe("Search container", () => {
+  test("renders", () => {
+    const wrapper = shallow(<SearchContainer />);
 
-  test("does render", () {
-    const wrapper
-  })
+    expect(wrapper.exists()).toBe(true);
+  });
 
-  test("should work", () => {
-    const fakePerformSearch = jest.fn();
+  test("should update articles state", () => {
+    const wrapper = shallow(<SearchContainer />);
 
-    const component = shallow(<Search performSearch={fakePerformSearch} />);
-
-    expect(fakePerformSearch).toHaveBeenCalled();
-
-    // fetch.mockResponse(
-    //   JSON.stringify({ greeting: "HelloWorld!" }, { status: 200 })
-    // );
-    //
-    // return loadFromServer(successMock).then(() => {
-    //   expect(successMock.mock.calls.length).toBe(1);
-    // });
+    expect(wrapper.state().articles).toEqual([]);
+    wrapper.update();
+    expect(wrapper.state().articles.length).toEqual(10);
   });
 });
