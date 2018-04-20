@@ -21,18 +21,11 @@ describe("Search container", () => {
 
     expect(wrapper.state().articles).toEqual([]);
 
-    wrapper.change();
-
-    expect(wrapper.state().articles.length).toEqual(10);
-    done();
-  });
-
-  test("performSearch should be called", () => {
-    const mockFn = jest.fn();
-
-    const wrapper = shallow(<SearchContainer performSearch={mockFn} />);
-
     wrapper.update();
-    expect(mockFn).toHaveBeenCalled();
+
+    setTimeout(() => {
+      expect(wrapper.state().articles.length).toEqual(10);
+      done();
+    }, 2000);
   });
 });
