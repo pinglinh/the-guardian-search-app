@@ -16,6 +16,12 @@ describe("Search container", () => {
     expect(wrapper.exists()).toBe(true);
   });
 
+  test("should render Search component", () => {
+    const wrapper = mount(<SearchContainer />);
+
+    expect(wrapper.children(Search).length).toEqual(1);
+  });
+
   test("should update articles state", () => {
     const wrapper = mount(<SearchContainer />);
 
