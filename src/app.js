@@ -1,8 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import { Provider } from "react-redux";
+
 const App = () => {
-  return <div>Hello React</div>;
+  return (
+    <Provider store={store}>
+      <div>Hello React</div>;
+    </Provider>
+  );
 };
 
 ReactDOM.render(<App />, document.getElementById("app"));
