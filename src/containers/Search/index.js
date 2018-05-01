@@ -1,6 +1,5 @@
 import React from "react";
 import Search from "../../components/Search";
-import { API_KEY } from "../../../config";
 
 import fetchArticles from "../../api";
 
