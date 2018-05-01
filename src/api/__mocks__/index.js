@@ -1,6 +1,6 @@
 const range = n => [...Array(n).keys()];
 
-const fetchArticles = event => {
+const fetchArticles = () => {
   return Promise.resolve({
     response: {
       results: range(10).map(i => ({
