@@ -13,13 +13,7 @@ describe("Search component", () => {
   });
 
   test("user text is echoed", () => {
-    const wrapper = shallow(
-      <Search
-        performSearch={() => {
-          "hello";
-        }}
-      />
-    );
+    const wrapper = shallow(<Search performSearch={() => {}} />);
 
     wrapper.find("input").simulate("change", {
       target: { value: "hello" }
