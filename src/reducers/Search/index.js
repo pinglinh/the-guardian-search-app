@@ -1,13 +1,16 @@
-import { GET_ARTICLES } from "../../actions/Search";
+import { SEARCH_INPUT_VALUE, SET_ARTICLES } from "../../actions/Search";
 
 const initialState = {
-  articles: []
+  articles: [],
+  value: ""
 };
 
 const SearchReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_ARTICLES:
-      return Object.assign({}, state, { articles: action.value });
+    case SEARCH_INPUT_VALUE:
+      return Object.assign({}, state, { value: action.value });
+    case SET_ARTICLES:
+      return Object.assign({}, state, { articles: action.articles });
     default:
       return state;
   }
