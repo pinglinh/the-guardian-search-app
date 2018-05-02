@@ -7,7 +7,7 @@ const Search = props => {
     <div>
       <h1>The Guardian Search App</h1>
       <form onSubmit={event => props.handleSubmit(event, props.value)}>
-        <input type="text" value={props.value} onChange={props.handleChange} />
+        <input type="text" onChange={props.handleChange} />
       </form>
       <div>
         <SearchResults articles={props.articles} />
@@ -17,8 +17,10 @@ const Search = props => {
 };
 
 Search.propTypes = {
-  performSearch: PropTypes.func,
-  articles: PropTypes.array
+  handleSubmit: PropTypes.func,
+  articles: PropTypes.array,
+  value: PropTypes.string,
+  handleChange: PropTypes.func
 };
 
 export default Search;
