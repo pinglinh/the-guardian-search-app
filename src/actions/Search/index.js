@@ -1,16 +1,20 @@
 import { API_KEY } from "../../../config";
 
-export const GET_ARTICLES = "GET_ARTICLES";
+export const SEARCH_INPUT_VALUE = "SEARCH_INPUT_VALUE";
+export const SET_ARTICLES = "SET_ARTICLES";
 
-function performSearch(event) {
-  fetch(`http://content.guardianapis.com/search?q=${event}&api-key=${API_KEY}`)
+function getArticles(dispatch, query) {
+  fetch(`http://content.guardianapis.com/search?q=${query}&api-key=${API_KEY}`)
     .then(response => response.json())
-    .then(data =>
+    .then(data => {
+      console.log("do we have data?", data);
       dispatch({
-        type: GET_ARTICLES,
+        type: SET_ARTICLES,
         articles: data.response.results
-      })
-    );
+      });
+    });
 }
 
-export default performSearch;
+export default {
+  getArticles
+};
