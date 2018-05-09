@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import getArticles, { inputValue } from "../../actions/Search";
+import { getArticles, inputValue } from "../../actions/Search";
 
 import Search from "../../components/Search";
 

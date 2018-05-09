@@ -17,7 +17,7 @@ export function receivedArticles(articles) {
   };
 }
 
-function getArticles(query) {
+export function getArticles(query) {
   return function(dispatch) {
     return fetch(
       `http://content.guardianapis.com/search?q=${query}&api-key=${API_KEY}`
@@ -52,5 +52,3 @@ function getArticles(query) {
 // };
 //
 // dispatch(fetchPostsIfNeeded(selectedSubreddit))
-
-export default getArticles;
