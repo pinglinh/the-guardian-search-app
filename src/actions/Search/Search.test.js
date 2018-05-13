@@ -6,7 +6,7 @@ import thunk from "redux-thunk";
 import fetchMock from "fetch-mock";
 
 describe("Search action", () => {
-  it("it should create an action to get user's input value", () => {
+  it("should create an action to get user's input value", () => {
     const text = "Hello";
 
     const expectedAction = {
@@ -17,7 +17,7 @@ describe("Search action", () => {
     expect(SearchAction.inputValue(text)).toEqual(expectedAction);
   });
 
-  it("it should create an action to set the articles", () => {
+  it("should create an action to set the articles", () => {
     const articles = ["hello", "hello"];
 
     const expectedAction = {
@@ -28,7 +28,7 @@ describe("Search action", () => {
     expect(SearchAction.receivedArticles(articles)).toEqual(expectedAction);
   });
 
-  it("it should create SET_ARTICLES when fetching articles has been done", () => {
+  it("should create SET_ARTICLES when fetching articles has been done", () => {
     const middleware = [thunk];
     const mockStore = configureMockStore(middleware);
     const query = "hello";
@@ -56,7 +56,7 @@ describe("Search action", () => {
 
     return store.dispatch(SearchAction.getArticles(query)).then(() => {
       console.log(store.getActions());
-      expect(store.getActions()[0]).toEqual(expectedAction);
+      expect(store.getActions()).toEqual([expectedAction]);
       // can also do getActions and make expectedAction into []
     });
   });
