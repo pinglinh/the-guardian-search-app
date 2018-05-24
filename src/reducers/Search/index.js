@@ -5,15 +5,20 @@ const initialState = {
   value: ""
 };
 
-const SearchReducer = (state = initialState, action) => {
+export const SearchReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEARCH_INPUT_VALUE:
-      return Object.assign({}, state, { value: action.value });
+      return { ...state, value: action.value };
     case SET_ARTICLES:
-      return Object.assign({}, state, { articles: action.articles });
+      return { ...state, articles: action.articles };
     default:
       return state;
   }
 };
 
-export default SearchReducer;
+// export const SearchReducer = (state = initialState, action) => {
+//   if (action.type === SEARCH_INPUT_VALUE) {
+//     return Object.assign({}, state, { value: action.value });
+//   }
+//   return state;
+// };
