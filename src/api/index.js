@@ -1,9 +1,7 @@
-import { API_KEY } from "../../config";
-
 const fetchArticles = event => {
-  return fetch(
-    `http://content.guardianapis.com/search?q=${event}&api-key=${API_KEY}`
-  ).then(response => response.json());
+  return fetch(`http://localhost:3000/search?q=${event}`).then(response =>
+    response.json()
+  );
 };
 
 export default fetchArticles;
